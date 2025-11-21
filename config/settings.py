@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 from decouple import config, Csv
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -48,6 +49,15 @@ INSTALLED_APPS = [
     # Local apps
     'zonas_riego',
     'programaciones',
+]
+
+# Third-party apps
+INSTALLED_APPS += [
+    'rest_framework',
+    'drf_spectacular',
+    'django_filters',
+    'sensores',
+    'consumo_agua',
 ]
 
 MIDDLEWARE = [
@@ -97,6 +107,21 @@ DATABASES = {
             'charset': config('DB_OPTIONS_CHARSET', default='utf8mb4'),
         }
     }
+}
+
+# Django REST Framework + drf-spectacular
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Gestión de Riego - API',
+    'DESCRIPTION': 'API para proyecto de gestión de riego automatizado',
+    'VERSION': '1.0.0',
 }
 
 
