@@ -7,3 +7,4 @@ mysqlclient
 PyMySQL
 pytest
 pytest-django
+drf_yasg
