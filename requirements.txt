@@ -8,4 +8,4 @@ PyMySQL
 pytest
 pytest-django
 drf_yasg
-pip install django-cors-headers
+django-cors-headers
