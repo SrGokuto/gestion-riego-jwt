@@ -95,21 +95,61 @@ python manage.py runserver
 ```
 Gestión-Riego-Automatizado/
 │
-├── riego/                # App principal
-│   ├── models.py         # Modelos de sensores, zonas, válvulas, riegos
-│   ├── serializers.py    # Serializadores de DRF
-│   ├── views.py          # Endpoints del API
-│   ├── urls.py           # Rutas de la app
-│   ├── services/         # Lógica de negocio
-│   └── admin.py          # Panel administrativo
+├── Config/               
+│   ├── _init_.py         
+│   ├── asgi.py    
+│   ├── settings.py          
+│   ├── urls.py           
+│   └── wsgi.py          
 │
-├── GestionRiego/         # Configuración del proyecto
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
+├── consumo_agua/               
+│   ├── _init_.py         
+│   ├── apps.py    
+│   ├── filters.py         
+│   ├── models.py               
+│   └── senrializers.py
+├   ├── urls.py           
+│   └── views.py
+├── programaciones/               
+│   ├── _init_.py
+│   ├── admin.py          
+│   ├── apps.py    
+│   ├── filters.py         
+│   ├── models.py               
+│   └── senrializers.py
+├   ├── test.py  
+├   ├── urls.py           
+│   └── views.py
+├── sensorwa/               
+│   ├── _init_.py
+│   ├── admin.py          
+│   ├── apps.py    
+│   ├── filters.py         
+│   ├── models.py               
+│   └── senrializers.py
+├   ├── test.py  
+├   ├── urls.py           
+│   └── views.py
+├── settings/         
+│   ├── base.py
+│   ├── dev.py
+│   └── prot.py
+│                  
 │
-├── requirements.txt
+├── zonas_riego/               
+│   ├── _init_.py
+│   ├── admin.py          
+│   ├── apps.py    
+│   ├── filters.py         
+│   ├── models.py               
+│   └── senrializers.py
+├   ├── test.py  
+├   ├── urls.py           
+│   └── views.py
+├── .gitignore
 ├── .env.example
+├── init_data.py
+├── manage.py
 └── README.md
 ```
 
