@@ -9,3 +9,4 @@ pytest
 pytest-django
 drf_yasg
 django-cors-headers
+gunicorn
