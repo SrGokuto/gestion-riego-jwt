@@ -1,6 +1,8 @@
 from rest_framework import viewsets, status, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from django.db.models import Count, Avg, Sum, Q
 from django.utils import timezone
 from datetime import timedelta
@@ -32,6 +34,9 @@ class ZonaViewSet(viewsets.ModelViewSet):
     search_fields = ['nombre', 'descripcion', 'ubicacion']
     ordering_fields = ['nombre', 'area_m2', 'capacidad_agua_litros', 'fecha_creacion']
     ordering = ['nombre']
+
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
     
     def get_serializer_class(self):
         """Usar serializer simple para listado"""
