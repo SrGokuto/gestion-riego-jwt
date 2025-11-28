@@ -9,7 +9,9 @@ from rest_framework.permissions import IsAuthenticated
 class MedidorViewSet(viewsets.ModelViewSet):
     queryset = Medidor.objects.all()
     serializer_class = MedidorSerializer
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
+    
 
     @decorators.action(detail=True, methods=['get'])
     def total_consumo(self, request, pk=None):
@@ -29,4 +31,5 @@ class ConsumoViewSet(viewsets.ModelViewSet):
     serializer_class = ConsumoSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = ConsumoFilter
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
