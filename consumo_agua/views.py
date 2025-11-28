@@ -4,10 +4,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .models import Medidor, Consumo
 from .serializers import MedidorSerializer, ConsumoSerializer
 from .filters import ConsumoFilter
+from rest_framework.permissions import IsAuthenticated
 
 class MedidorViewSet(viewsets.ModelViewSet):
     queryset = Medidor.objects.all()
     serializer_class = MedidorSerializer
+    permission_classes = [IsAuthenticated]
 
     @decorators.action(detail=True, methods=['get'])
     def total_consumo(self, request, pk=None):
@@ -27,3 +29,4 @@ class ConsumoViewSet(viewsets.ModelViewSet):
     serializer_class = ConsumoSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = ConsumoFilter
+    permission_classes = [IsAuthenticated]
