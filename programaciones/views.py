@@ -34,6 +34,7 @@ class ProgramacionViewSet(viewsets.ModelViewSet):
     search_fields = ['nombre', 'descripcion']
     ordering_fields = ['nombre', 'hora_inicio', 'prioridad', 'fecha_creacion']
     ordering = ['-prioridad', 'hora_inicio']
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
     
     def get_serializer_class(self):
