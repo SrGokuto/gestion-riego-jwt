@@ -5,6 +5,7 @@ from .models import Medidor, Consumo
 from .serializers import MedidorSerializer, ConsumoSerializer
 from .filters import ConsumoFilter
 from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 class MedidorViewSet(viewsets.ModelViewSet):
     queryset = Medidor.objects.all()
