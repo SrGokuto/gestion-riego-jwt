@@ -9,6 +9,7 @@ from .serializers import ProgramacionSerializer, ProgramacionSimpleSerializer
 from .filters import ProgramacionFilter
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+from rest_framework.permissions import IsAuthenticated
 
 
 class ProgramacionViewSet(viewsets.ModelViewSet):
@@ -33,6 +34,7 @@ class ProgramacionViewSet(viewsets.ModelViewSet):
     search_fields = ['nombre', 'descripcion']
     ordering_fields = ['nombre', 'hora_inicio', 'prioridad', 'fecha_creacion']
     ordering = ['-prioridad', 'hora_inicio']
+    permission_classes = [IsAuthenticated]
     
     def get_serializer_class(self):
         """Usar serializer simple para listado"""
